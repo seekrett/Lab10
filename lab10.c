@@ -8,7 +8,9 @@ to swap two variables, coded in assembly language.
 
 // swap function
 void swap(int *x, int *y) {
-    // code here
+    int temp = *x;
+    *x = *y;
+    *y = temp;
 }
 
 // swap function in assembly
