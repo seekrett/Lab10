@@ -16,12 +16,17 @@ void swap(int *x, int *y) {
 // swap function in assembly
 void swap_asm(int *x, int *y) {
     __asm__ volatile (
+        // copy the int at memory location x into register eax
         "movl (%[px]), %%eax\n\t"
+        // copy the int at memory location y into register ebx
         "movl (%[py]), %%ebx\n\t"
+        // store value in ebx (og y value) in memory location x
         "movl %%ebx, (%[px])\n\t"
+        // store value in eax (og x value) in memory location y
         "movl %%eax, (%[py])\n\t"
         : // no output operands
-        : [px] "r" (x), [py] "r" (y) // input operands: addresses of x and y
+        // allocate a register "r" for x and name it px // for y and name it py
+        : [px] "r" (x), [py] "r" (y) // input operands: ADDRESSES of x and y
         : "eax", "ebx" // clobbered registers
     );
 }
