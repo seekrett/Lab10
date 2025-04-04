@@ -55,9 +55,10 @@ int main() {
     printf("-- After Assembly --\n");
     printf("a: %d\nb: %d\n", a, b);
 
-    // print addresses -----
+    // answers to qns -----
     printf("\n--- memory addresses ---\n");
     printf("Address of swap(): %p\n", swap);
+    printf("The register that holds the initial value *xp is eax.\nThe register that holds the initial value *yp is ebx.\n");
     printf("Address of a: %p\n", &a);
     printf("Address of b: %p\n", &b);
 
