@@ -44,10 +44,10 @@ int main() {
     // test case 2: assembly swap -----
     a = 18;
     b = 61;
-    printf("-- Before Assembly --");
-    printf("a: %d\nb: %d", a, b);
+    printf("-- Before Assembly --\n");
+    printf("a: %d\nb: %d\n", a, b);
     swap_asm(&a, &b);
-    printf("-- After Assembly --");
-    printf("a: %d\nb: %d", a, b);
+    printf("-- After Assembly --\n");
+    printf("a: %d\nb: %d\n", a, b);
     return 0;
 }
