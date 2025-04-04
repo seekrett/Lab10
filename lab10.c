@@ -54,5 +54,12 @@ int main() {
     swap_asm(&a, &b);
     printf("-- After Assembly --\n");
     printf("a: %d\nb: %d\n", a, b);
+
+    // print addresses -----
+    printf("\n--- memory addresses ---\n");
+    printf("Address of swap(): %p\n", swap);
+    printf("Address of a: %p\n", &a);
+    printf("Address of b: %p\n", &b);
+
     return 0;
 }
