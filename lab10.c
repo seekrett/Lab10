@@ -19,7 +19,7 @@ void swap_asm(int *x, int *y) {
         "movl (%[px]), %%eax\n\t"
         "movl (%[py]), %%ebx\n\t"
         "movl %%ebx, (%[px])\n\t"
-        "movl %%eas, (%[py])\n\t"
+        "movl %%eax, (%[py])\n\t"
         : // no output operands
         : [px] "r" (x), [py] "r" (y) // input operands: addresses of x and y
         : "eax", "ebx" // clobbered registers
@@ -29,6 +29,25 @@ void swap_asm(int *x, int *y) {
 
 //main function
 int main() {
-    // code here
+    // variable declarations
+    int a, b;
+
+    // test case 1: standard c swap -----
+    a = 20;
+    b = 23;
+    printf("-- Before Standard --\n");
+    printf("a: %d\nb: %d\n", a, b);
+    swap(&a, &b);
+    printf("-- After Standard --\n");
+    printf("a: %d\nb: %d\n", a, b);
+
+    // test case 2: assembly swap -----
+    a = 18;
+    b = 61;
+    printf("-- Before Assembly --");
+    printf("a: %d\nb: %d", a, b);
+    swap_asm(&a, &b);
+    printf("-- After Assembly --");
+    printf("a: %d\nb: %d", a, b);
     return 0;
 }
